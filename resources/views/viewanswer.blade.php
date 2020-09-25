@@ -4,6 +4,13 @@
     <div style="width: 100%">
         <div class="container">
             <div class="row d-flex flex-column justify-content-center align-content-center align-items-center" style="padding-top: 10vh">
+           @if (count($rowq) == 0)
+                <center>
+                    <p style="margin: auto;width:auto">No Answers Yet !!</p>
+                    <img class="non-found" src="../img/non/non1.png">
+                </center>
+            @else
+          
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -32,7 +39,7 @@
                                 <td>
                                     <div class="card-header" id="headingOne{{$q->id}}">
                                         <button class="btn" data-toggle="collapse" data-target="#collapseOne{{$q->id}}" aria-expanded="true" aria-controls="collapseOne{{$q->id}}">
-                                            <i class="fas fa-eye text-warning" style="font-size: 30px"></i>
+                                            <i class="fas fa-arrow-down text-warning" style="font-size: 30px"></i>
                                         </button>
                                     </div>
                                     <div id="collapseOne{{$q->id}}" class="collapse show" aria-labelledby="headingOne{{$q->id}}" data-parent="#accordion">
@@ -69,6 +76,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                @endif
                 </div>
             </div>
         </div>

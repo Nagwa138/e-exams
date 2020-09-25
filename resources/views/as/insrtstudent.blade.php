@@ -42,6 +42,12 @@
         </a>
     </form>
 <div>
+    @if (count($rows) == 0)
+                            <center>
+                                <p style="margin: auto;width:auto">لا يوجد طلاب بعد  !!</p>
+                                <img class="non-found" src="img/non/non1.png">
+                            </center>
+    @else
     <table class="table">
         <thead>
         <th>الرقم</th>
@@ -78,6 +84,7 @@
             @endforeach
         </tbody>
     </table>
+    @endif
 </div>
     <script>
         $(document).ready(function(){

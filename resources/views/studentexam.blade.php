@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{csrf_token()}}">
-    <link rel="icon" href="../images.jpeg" style="border-radius: 20px">
+    <link rel="icon" href="images.jpeg" style="border-radius: 20px">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="bootstrap-4.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -99,13 +99,22 @@
                     @foreach($rowq as $q)
                         @if($q->id == $tru->question_id)
                                         <li style="margin: 15vh 0px;width: 100%">
-                                            {{$q->text}}
+                                             
+                                                                            
+
+                                                                            
+                                            @php
+                                            $a = substr($q->text , 1 );
+                                            echo $a;
+                                            @endphp
+                                                
+                                            
                                             @foreach($rowat as $at)
                                                 @if($at->question_id == $q->id)
                                                 @if($at->fileattache_id == 1)<br><br>
                                                 <center>
                                                 <img src="att/img/{{$at->name}}" class="imgfluid col-md-6 col-10" style="margin:15px;">
-</center>
+                                                </center>
                                                     @endif
                                                 @if($at->fileattache_id == 2)<br><br>
 
@@ -129,7 +138,16 @@
                                                     @foreach($rowans as $a)
                                                         @if($a->question_id == $q->id)
                                                             <li style="display: inline;">
-                                                                <input type="radio" name="answer{{$q->id}}" value="{{$q->id}}{{$a->text}}" id="{{$a->id}}" style="font-size: 20px;margin-right: 5px;margin-left: 10%"><label for="{{$a->id}}"> {{$a->text}}</label>
+                                                                <input type="radio" name="answer{{$q->id}}" value="{{$q->id}}{{$a->text}}" id="{{$a->id}}" style="font-size: 20px;margin-right: 5px;margin-left: 10%"><label for="{{$a->id}}">  
+                                                                            
+
+                                                                            
+                                                                    @php
+                                                                    $a = substr($a->text , 1 );
+                                                                    echo $a;
+                                                                    @endphp
+                                                                        
+                                                                    </label>
                                                             </li>
                                                         @endif
                                                     @endforeach
@@ -139,7 +157,14 @@
                                                         @if($a->question_id == $q->id)
                                                             <li style="display: inline;" class="d-flex justify-content-center align-items-center row">
                                                                     <input type="checkbox"  name="answer{{$a->id}}"  value="{{$q->id}}{{$a->text}}" id="{{$a->id}}" style="font-size: 20px;margin-right: 5px;">
-                                                                        <label for="{{$a->id}}"> {{$a->text}}</label>
+                                                                        <label for="{{$a->id}}"> 
+                                                                           
+                                                                        @php
+                                                                        $a = substr($a->text , 1 );
+                                                                        echo $a;
+                                                                        @endphp
+                                                                            
+                                                                        </label>
                                                             </li>
                                                         @endif
                                                     @endforeach
@@ -163,6 +188,14 @@
     </div>
 </section>
 <script>
+    $(document).ready(function(){
+   
+    window.onbeforeunload = function(event)
+    {
+        return confirm("If You Refreshed This Page All Your Answers Will Be Deleted !!! ");
+    };
+         
+})
 var seconds = {{$time}},
                 secondPass,
                 intervals = document.getElementById('intervals'),
@@ -190,9 +223,6 @@ var seconds = {{$time}},
                     clearInterval(countDown);
                    $('form.my_form').trigger('submit');
                 }
-            }
-        window.onbeforeunload = function() {
-    return "Are you sure you want to leave? your answers will be removed!";
             }
 </script>
 </body>

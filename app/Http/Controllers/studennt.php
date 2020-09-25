@@ -128,16 +128,17 @@ class studennt extends Controller
             if (count($student)>0)
             {
                 foreach ($student as $ss){
-                    if(password_verify(0,$ss->password)) {
+                    if( $ss->password == 0) {
                         session_start();
                         session()->get('studentid');
                         session()->put('studentid',$nid);
                         return redirect('setpassword');
-                    }else{
-                    session_start();
-                    session()->get('studentid');
-                    session()->put('studentid',$nid);
-                    return redirect('Student');
+                    } else {
+
+                        session_start();
+                        session()->get('studentid');
+                        session()->put('studentid',$nid);
+                        return redirect('Student');
                     }
                 }
             }
@@ -145,6 +146,7 @@ class studennt extends Controller
     }
     public function sview(){
         $value = session()->get('studentid');
+        // if  user are loggining 
         if($value){
 
         $s = session('studentid');
@@ -152,10 +154,10 @@ class studennt extends Controller
         $timesubRank = 0;
         $finalRank = 0;
         $numRank2 = 0;
-            $finalRate=0;
+        $finalRate=0;
         $finalRating = 0;
 
-
+            // student rank
             $subjectcalc = DB::table('studentranks')
                 ->where('natid',$s)
                 ->where('updates',1)
@@ -164,6 +166,10 @@ class studennt extends Controller
                 $finalRank = $finalRank + ( $CalcRank->studentrank * 10);
                 $finalRating = $finalRating +( $CalcRank->final * 10);
             }
+
+            //-------------------------
+
+        //student department
         $rowstu = DB::table('students')
             ->where('Nationalid',$s)
             ->get();
@@ -172,32 +178,49 @@ class studennt extends Controller
                     ->where('department_id',$stu->department_id)
                     ->get();
         }
+        //--------------
+
         $rowr = DB::table('results')
                 ->where('final',1)
             ->get();
+
         $rowstu = DB::table('students')
             ->where('Nationalid',$s)
             ->get();
+
         $rows = DB::table('subjects')
             ->get();
 
         date_default_timezone_set('Africa/Cairo');
+
+        //time user are using the system at
         $currentdate = date('Y-m-d',time());
         $currenttime = date('G:i:s',time());
+        //-----------
+
             $rows2row = DB::table('subjects')
                         ->get();
+
             foreach($rows2row as $sub2){
+
                 $examrow = DB::table('examtimes')
                     ->where('subject_id',$sub2->id)
                     ->get();
+                    //check if professors set the time and date of the exam of this  suject or not 
+
                 if(count($examrow)>0){
+
                     foreach($examrow as $e){
+                        //bug is here
                         if($e->date == $currentdate){
-                            if($e->times <= $currenttime){
+
+                            if($e->times < $currenttime){
+                                //if the day is the exam day and the hour is the same or past
                                 $interval = strtotime($e->times);
                                 $interval2 = ($interval +( $e->time * 60 * 60 )+($e->min * 60 ));
                                 $interval3 = strtotime($currenttime);
-                                if($interval2 > $interval3){
+
+                                if(($interval2 > $interval3) && ($interval3 > $interval) ){
                                         //new//
 
                                         $opened = DB::table('openexams')
@@ -408,15 +431,15 @@ class studennt extends Controller
                                         ->update(["work"=>0]);
                                 }
                             }
-                            else{
-                                DB::table('openexams')
-                                    ->where('subject_id',$sub2->id)
-                                    ->update(["work"=>0]);
-                                DB::table('openexamstudents')
-                                    ->where('subject_id',$sub2->id)
-                                    ->update(["work"=>0]);
-                            }
-                        }
+                                else{
+                                    DB::table('openexams')
+                                        ->where('subject_id',$sub2->id)
+                                        ->update(["work"=>0]);
+                                    DB::table('openexamstudents')
+                                        ->where('subject_id',$sub2->id)
+                                        ->update(["work"=>0]);
+                                }
+                    }
                         else{
                             DB::table('openexams')
                                 ->where('subject_id',$sub2->id)
@@ -439,12 +462,12 @@ class studennt extends Controller
         $rowc = DB::table('chapters')
             ->get();
 
-     return view('studentinfo',compact('rowstu','rowl','rowd','rows','rowopen','rowr','rowc','rows2','finalRank','finalRating'));
+        return view('studentinfo',compact('rowstu','rowl','rowd','rows','rowopen','rowr','rowc','rows2','finalRank','finalRating'));
 
         }else{
             return redirect()->back();
         }
-        }
+    }
     public function openexam(){
         $y = session('profid');
         $row = DB::table('professors')

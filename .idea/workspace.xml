@@ -122,7 +122,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="C:/Project/laravel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -183,15 +183,7 @@
       <workItem from="1586605956708" duration="4653000" />
       <workItem from="1586658247823" duration="9068000" />
       <workItem from="1586684724214" duration="12785000" />
-      <workItem from="1586724876623" duration="2024000" />
-      <workItem from="1586767376165" duration="623000" />
-      <workItem from="1586776123611" duration="5163000" />
-      <workItem from="1586867296769" duration="1776000" />
-      <workItem from="1588031330392" duration="1022000" />
-      <workItem from="1588105757073" duration="2319000" />
-      <workItem from="1588384147772" duration="2212000" />
-      <workItem from="1588402495073" duration="70000" />
-      <workItem from="1588743840583" duration="679000" />
+      <workItem from="1586724876623" duration="1425000" />
     </task>
     <servers />
   </component>
@@ -219,34 +211,34 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1585139211862" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1586776327476">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1586605705637">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586776327476" />
-    <state width="1323" height="163" key="GridCell.Tab.0.bottom" timestamp="1588051964633">
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586605705637" />
+    <state width="1323" height="163" key="GridCell.Tab.0.bottom" timestamp="1586407126761">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="163" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588051964633" />
-    <state width="1323" height="163" key="GridCell.Tab.0.center" timestamp="1588051964633">
+    <state width="1323" height="163" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586407126761" />
+    <state width="1323" height="163" key="GridCell.Tab.0.center" timestamp="1586407126761">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="163" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1588051964633" />
-    <state width="1323" height="163" key="GridCell.Tab.0.left" timestamp="1588051964633">
+    <state width="1323" height="163" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586407126761" />
+    <state width="1323" height="163" key="GridCell.Tab.0.left" timestamp="1586407126760">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="163" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1588051964633" />
-    <state width="1323" height="163" key="GridCell.Tab.0.right" timestamp="1588051964633">
+    <state width="1323" height="163" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586407126760" />
+    <state width="1323" height="163" key="GridCell.Tab.0.right" timestamp="1586407126761">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="163" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1588051964633" />
+    <state width="1323" height="163" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586407126761" />
     <state x="517" y="287" key="NewPhpFileDialog" timestamp="1585160884406">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1585160884406" />
-    <state x="118" y="181" key="com.intellij.ide.util.TipDialog" timestamp="1586867420665">
+    <state x="118" y="181" key="com.intellij.ide.util.TipDialog" timestamp="1586726417613">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="118" y="181" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1586867420665" />
+    <state x="118" y="181" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1586726417613" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1585122124654">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

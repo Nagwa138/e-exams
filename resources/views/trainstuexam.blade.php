@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Student</title>
     <link href="bootstrap-4.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link rel="icon" href="../images.jpeg" style="border-radius: 20px">
+    <link rel="icon" href="images.jpeg" style="border-radius: 20px">
 
     <link rel="stylesheet" type="text/css" href="css/student.css">
     <script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
@@ -80,7 +80,15 @@ p.logg{
                         @foreach($rowq as $q)
                             @if($t->question_id == $q->id)
                                 @if($t->chapter_id == $co->chapter_id)
-                                <li style="color: black;width: 100%"><i class="fas fa-circle" style="margin: 0px 5px;font-size:10px"></i>{{$q->text}}<br>
+                                <li style="color: black;width: 100%"><i class="fas fa-circle" style="margin: 0px 5px;font-size:10px"></i>
+                                    
+                                    @php
+                                        $a = substr($q->text , 1);
+                                        echo $a;
+                                    @endphp
+                                    
+                
+                                    <br>
                                     @foreach($rowat as $at)
                                         @if($q->typeq_id == 3)
                                             @if($at->question_id == $q->id)
@@ -131,7 +139,13 @@ p.logg{
                                             @foreach($rowans as $a)
                                                 @if($a->question_id == $q->id)
                                                     <li  class="d-flex justify-content-center align-items-center col-md-2 col-6"  style="display: inline;color: #330066;">
-                                                        <input type="radio" style="margin:0px 10px;" name="answer{{$q->id}}" value="{{$q->id}}{{$a->text}}" id="{{$a->id}}" ><label for="{{$a->id}}"> {{$a->text}}</label>
+                                                        <input type="radio" style="margin:0px 10px;" name="answer{{$q->id}}" value="{{$q->id}}{{$a->text}}" id="{{$a->id}}" ><label for="{{$a->id}}">
+                                                            @php
+                                                                $a = substr($a->text , 1);
+                                                                echo $a;
+                                                            @endphp
+                                                            
+                                                            </label>
                                                     </li>
                                                 @endif
                                             @endforeach
@@ -140,7 +154,13 @@ p.logg{
                                             @foreach($rowans as $a)
                                                 @if($a->question_id == $q->id)
                                                 <li class="d-flex justify-content-center align-items-center col-md-3 col-6" style="display: inline;color: #330066;">
-                                                        <input type="checkbox" name="answer{{$a->id}}" style="margin:0px 10px;" value="{{$q->id}}" id="{{$a->id}}"><label for="{{$a->id}}"> {{$a->text}}</label>
+                                                        <input type="checkbox" name="answer{{$a->id}}" style="margin:0px 10px;" value="{{$q->id}}" id="{{$a->id}}"><label for="{{$a->id}}">
+                                                            @php
+                                                                $a = substr($a->text , 1);
+                                                                echo $a;
+                                                            @endphp
+                                                            
+                                                            </label>
                                                     </li>
                                                 @endif
                                             @endforeach

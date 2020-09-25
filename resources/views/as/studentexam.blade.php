@@ -97,7 +97,16 @@
                     @foreach($rowq as $q)
                         @if($q->id == $tru->question_id)
                                         <li class="col-12" style="margin: 15vh 0px;width: 100%">
-                                            {{$q->text}}
+                                        
+
+                                            
+                                                                            
+                                            @php
+                                            $a = substr($q->text , 1 );
+                                            echo $a;
+                                            @endphp
+                                                
+                                 
                                             @foreach($rowat as $at)
                                                 @if($at->question_id == $q->id)
                                                 @if($at->fileattache_id == 1)<br><br>
@@ -125,7 +134,14 @@
                                                     @foreach($rowans as $a)
                                                         @if($a->question_id == $q->id)
                                                             <li style="display: inline;" class="col-6">
-                                                                <input type="radio" name="answer{{$q->id}}" value="{{$q->id}}{{$a->text}}" id="{{$a->id}}" style="font-size: 20px;margin-right: 5px;margin-left: 10%"><label for="{{$a->id}}"> {{$a->text}}</label>
+                                                                <input type="radio" name="answer{{$q->id}}" value="{{$q->id}}{{$a->text}}" id="{{$a->id}}" style="font-size: 20px;margin-right: 5px;margin-left: 10%"><label for="{{$a->id}}"> 
+                                                                            
+                                                                    @php
+                                                                    $a = substr($a->text , 1 );
+                                                                    echo $a;
+                                                                    @endphp
+                                                                        
+                                                         </label>
                                                             </li>
                                                         @endif
                                                     @endforeach
@@ -134,7 +150,14 @@
                                                     @foreach($rowans as $a)
                                                         @if($a->question_id == $q->id)
                                                             <li style="display: inline;" class="d-flex justify-content-center align-items-center row">
-                                                                <input type="checkbox" name="answer{{$a->id}}" value="{{$q->id}}{{$a->text}}" id="{{$a->id}}" style="font-size: 20px;margin-right: 5px;margin-left: 10%"><label for="{{$a->id}}"> {{$a->text}}</label>
+                                                                <input type="checkbox" name="answer{{$a->id}}" value="{{$q->id}}{{$a->text}}" id="{{$a->id}}" style="font-size: 20px;margin-right: 5px;margin-left: 10%"><label for="{{$a->id}}"> 
+                                                                            
+                                                                    @php
+                                                                    $a = substr($a->text , 1 );
+                                                                    echo $a;
+                                                                    @endphp
+                                                                        
+                                                         </label>
                                                             </li>
                                                         @endif
                                                     @endforeach
@@ -158,6 +181,15 @@
     </div>
 </section>
 <script>
+
+$(document).ready(function(){
+   
+   window.onbeforeunload = function(event)
+   {
+       return confirm("اعادة تحميل الصفحه سيؤدي لفقدان جميع اجاباتك !!");
+   };
+        
+})
 var seconds = {{$time}},
                 secondPass,
                 intervals = document.getElementById('intervals'),
@@ -187,9 +219,6 @@ var seconds = {{$time}},
                    $('form.my_form').trigger('submit');
                 }
             }
-window.onbeforeunload = function() {
-    return "هل تريد مغادرة الامتحان ؟ اجاباتك ستحذف عند المغادره !";
-}
 </script>
 </body>
 </html>

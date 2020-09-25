@@ -9,7 +9,7 @@ and open the template in the editor.
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="../images.jpeg" style="border-radius: 20px">
+    <link rel="icon" href="images.jpeg" style="border-radius: 20px">
 
     <link href="../bootstrap-4.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <title>Admin Page</title>

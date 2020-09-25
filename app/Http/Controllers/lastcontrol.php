@@ -89,7 +89,7 @@ class lastcontrol extends Controller
         $t->Nationalid = $r->Nationalid;
         $t->level_id = $r->level_id;
         $t->department_id = $r->department_id;
-        $t->password =password_hash(0,PASSWORD_ARGON2I);
+        $t->password =0;
         $t->save();
         DB::table('studentrqusts')
                 ->where('id',$r->id)
@@ -112,9 +112,9 @@ class lastcontrol extends Controller
         $nID = 47 . $r->student;
         $before1 = filter_var($r->password, FILTER_SANITIZE_ENCODED, FILTER_FLAG_STRIP_HIGH);
         $after1 = filter_var($before1,FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        if($after1 === $r->password){
+        if($after1 == $r->password){
                 DB::table('students')
-                ->where('Nationalid',$nID)
+                    ->where('Nationalid',$nID)
                     ->update(["password"=>password_hash($r->password,PASSWORD_ARGON2I)]);
             session()->start();
             session()->put('passwordCovered',$r->password);

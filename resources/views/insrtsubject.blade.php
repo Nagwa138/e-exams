@@ -13,7 +13,8 @@
             <select class="custom-select mr-sm-2" id="prof" name="prof">
                 @foreach ($rowp as $x)
                 <option value="{{$x->id}}">
-                    {{$x->name}}
+                   
+                    <img src="https://laravel.com/img/logomark.min.svg" style="width:30px;height30px;">  {{$x->name}}
                 </option>
                 @endforeach
             </select>
@@ -21,7 +22,7 @@
             <select class="custom-select mr-sm-2" id="depart" name="depart">
                 @foreach ($rowd as $y)
                 <option value="{{$y->id}}">
-                    {{$y->name}}
+                {{$y->name}} / Level  {{$y->level_id}}
                 </option>
                 @endforeach
             </select><br>

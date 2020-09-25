@@ -8,6 +8,12 @@
     <br>
     <br>
     <hr>
+    @if (count($rowr) == 0)
+    <center>
+        <p style="margin: auto;width:auto">لا يوجد طلبات بعد !!</p>
+        <img class="non-found" src="img/non/non1.png">
+    </center>
+@else
     <table class="table table-striped table-hover col-12">
         <thead>
         <tr>
@@ -17,6 +23,7 @@
         </tr>
         </thead>
         <tbody>
+           
         @foreach($rowr as $x)
             <tr>
                 <th scope="row">{{$x->id}}</th>
@@ -40,4 +47,5 @@
         @endforeach
         </tbody>
     </table>
+    @endif
 @stop

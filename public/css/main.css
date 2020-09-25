@@ -6,7 +6,16 @@
                 body{
                     position: relative;
                     padding-top: 0;
-                }
+				}
+				
+				
+.non-found{
+
+    width:70%; 
+    height:50%; 
+    margin: auto;
+
+}
 .button-alert{
     text-decoration: none;
     border: 0;

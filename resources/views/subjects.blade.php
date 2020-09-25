@@ -4,6 +4,12 @@
 <h1 style="padding:30px;">
     Subjects
 </h1>
+@if (count($rows) == 0)
+  <center>
+    <p style="margin: auto;width:auto">No Subjects Yet !!</p>
+    <img class="non-found" src="img/non/non1.png">
+  </center>
+@else
         <table class="table table-striped table-hover col-12">
             <thead>
               <tr>
@@ -47,6 +53,7 @@
               @endforeach
             </tbody>
           </table>
+          @endif
         <a href="subject">
             <button class="btn btn-primary">
                <i class="fas fa-plus"></i> New subject

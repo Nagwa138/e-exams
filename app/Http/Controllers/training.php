@@ -125,9 +125,11 @@ class training extends Controller
                                       $train->save();
                                      }
                                 }
+                                return redirect('Middle-Train');
+
                               }
+
                             }
-                    return redirect('Train-Exam')->with('nulls', 'Exam Started');
 
                 }
                 else {
@@ -135,7 +137,19 @@ class training extends Controller
                 }
             }
         }
-       return redirect('Train-Exam')->with('nulls', 'Exam Started');
+    }
+    public function middleTrain(){
+        
+        $subject_id = session()->get('subjectid');
+        $rowt = DB::table('trainexams')
+            ->where('subject_id',$subject_id)
+            ->get();
+        if(count($rowt)>0){
+            return redirect('Train-Exam')->with('nulls', 'Exam Started');
+        } 
+        else {
+                return redirect("Student")->with('nulls', 'Training Exams Not Available yet !!');
+        }
     }
     public function trainans(Request $request){
         $subject = session('subjectid');
@@ -243,6 +257,7 @@ class training extends Controller
         $rowq = DB::table('questions')
                 ->get();
         $rowans = DB::table('answers')
+                    ->where('id',$r->id)
                 ->get();
         $rowast = DB::table('answertimes')
                 ->get();

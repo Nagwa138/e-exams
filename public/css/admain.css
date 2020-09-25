@@ -7,6 +7,13 @@ p.logg{
 .logg2{
     padding:20px 12px;background-color: white;border-radius: 180px;margin-right: 3px;color: darkviolet;
 }
+.non-found{
+
+    width:30%; 
+    height:30%; 
+    margin: auto;
+
+}
 .exb{
     position: absolute;
     z-index: 10000;
@@ -371,6 +378,13 @@ img-con{
 }
 @media screen and (max-width: 1265px){
     
+.non-found{
+
+    width:70%; 
+    height:50%; 
+    margin: auto;
+
+}
     .nav-links{
         height: 100vh;
         right: 0%;

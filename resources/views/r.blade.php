@@ -11,7 +11,7 @@ and open the template in the editor.
     <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,600,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-    <link rel="icon" href="../images.jpeg" style="border-radius: 20px">
+    <link rel="icon" href="images.jpeg" style="border-radius: 20px">
 
     <link rel="stylesheet" href="css/style.css">
     <meta name="csrf-token" content="{{csrf_token()}}">

@@ -13,7 +13,6 @@ and open the template in the editor.
     <meta name="author" content="">
         <link rel="icon" href="images.jpeg" style="border-radius: 20px">
    <link href="bootstrap-4.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link rel="icon" href="../images.jpeg" style="border-radius: 20px">
 
     <link href="css/shop-homepage.css" rel="stylesheet" type="text/css"/>
     <script src="js/jquery-3.4.1.min.js"></script>
@@ -85,6 +84,7 @@ and open the template in the editor.
             <p class="d-flex justify-content-center align-content-center align-items-center"><span class="span"><i class="fab fa-twitter twi"></i></span></p>
 	</div>
         <script>
+           
         $(document).ready(function(){
             $('.carousel').carousel();
             $('.btn').addClass('bounceInRight');

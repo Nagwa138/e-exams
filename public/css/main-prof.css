@@ -1,6 +1,14 @@
 html{
     background: linear-gradient(to bottom,#9817b6,#bd1de2,#cf26d9,#de68e5,#e587ea);
 }
+
+.non-found{
+
+    width:70%; 
+    height:50%; 
+    margin: auto;
+
+}
 .button-alert{
     text-decoration: none;
     border: 0;

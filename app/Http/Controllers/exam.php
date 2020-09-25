@@ -345,6 +345,15 @@ class exam extends Controller
             $number = DB::table('usualexams')
                     ->where('subject_id',$sid)
                     ->get();
+
+
+            $quesLimit =  DB::table('questions')
+                    ->where('chapter_id',$request->chapter)
+                    ->get();
+
+            if(count($quesLimit)  >=  $request->quest){
+
+            
             if(count($number)>0){
                 foreach ($number as $nm){
                     if($nm->number > $strsub){
@@ -355,30 +364,17 @@ class exam extends Controller
 
                             $sCh =  $strsCh +$request->quest;
                             if($nm->number_chapter >= $sCh){
-                                $compareQD = DB::table('questions')
-                                            ->where('chapter_id',$request->chapter)
-                                            ->where('difficult_id',$request->degree)
-                                            ->get();
-                                $compareSD = DB::table('examstructures')
-                                    ->where('chapter_id',$request->chapter)
-                                    ->where('difficult_id',$request->degree)
-                                    ->get();
 
-                                if (count($compareSD) < count($compareQD)){
-                                    $t = new examstructure();
-                                    $t->subject_id = $sid;
-                                    $t->chapter_id =$request->chapter;
-                                    $t->difficult_id = $request->degree;
-                                    $t->numofq= $request->quest;
-                                    $t->save();
-                                    session_start();
-                                    session()->get('chapid');
-                                    session()->put('chapid',$t->id);
-                                    return redirect()->back()->with('nulls','Structure added Successfully !!');
-                                }
-                                else{
-                                    return redirect()->back()->with('nulls','Sorry, Question in this Chapter in This degree of difficulty Is not Available anymore . Please try with another Degree ');
-                                }
+                                $t = new examstructure();
+                                $t->subject_id = $sid;
+                                $t->chapter_id =$request->chapter;
+                                $t->difficult_id = $request->degree;
+                                $t->numofq= $request->quest;
+                                $t->save();
+                                session_start();
+                                session()->get('chapid');
+                                session()->put('chapid',$t->id);
+                                return redirect()->back()->with('nulls','Structure added Successfully !!');
                             }
 
                             elseif ($nm->number_chapter < $sCh){
@@ -393,13 +389,21 @@ class exam extends Controller
                         return redirect()->back()->with('nulls','The Number of Questions you recently choosed is more that the free space available, Please choose smaller Number !!');
                         }
                     }
-                    elseif($nm->number <= $strsub){
+                    else{
                         return redirect()->back()->with('nulls', 'Sorry your structures is more than limit level you set before !!');
                     }
                 }
-            }else{
+            }
+            
+            
+            
+            else{
                     return redirect()->back()->with('nulls', 'Sorry Set The Number of questions before !!');
                 }
+
+            }  else{
+                return redirect()->back()->with('nulls', 'Sorry The Number of questions is not available for this chapter !!');
+            }
 
     }
     public function deletestructure(examstructure $r){

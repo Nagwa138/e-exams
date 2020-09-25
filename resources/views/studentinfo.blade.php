@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="../images.jpeg" style="border-radius: 20px">
+    <link rel="icon" href="images.jpeg" style="border-radius: 20px">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Student</title>
@@ -236,7 +236,7 @@
 
         rank1 = rank1 +{{$finalRank}};
 
-     rank2 =rank2 + {{$finalRating}} ;
+        rank2 =rank2 + {{$finalRating}} ;
 
         var shRank = document.getElementById("rank");
         var rating = (rank1 * 100) / rank2;

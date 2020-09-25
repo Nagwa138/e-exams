@@ -80,7 +80,13 @@ p.logg{
                         @foreach($rowq as $q)
                             @if($t->question_id == $q->id)
                                 @if($t->chapter_id == $co->chapter_id)
-                                <li style="color: black;width: 100%"><i class="fas fa-circle" style="margin: 0px 5px;font-size:10px"></i>{{$q->text}}<br>
+                                <li style="color: black;width: 100%"><i class="fas fa-circle" style="margin: 0px 5px;font-size:10px"></i>
+                                    @php
+                                        $a = substr($q->text , 1);
+                                        echo $a;
+                                    @endphp
+                                    
+                                    <br>
                                     @foreach($rowat as $at)
                                         @if($q->typeq_id == 3)
                                             @if($at->question_id == $q->id)
@@ -129,7 +135,13 @@ p.logg{
                                             @foreach($rowans as $a)
                                                 @if($a->question_id == $q->id)
                                                     <li class="d-flex justify-content-center align-items-center col-md-2 col-6"  style="display: inline;color: #330066;">
-                                                        <input type="radio" name="answer{{$q->id}}"  style="margin:0px 10px;" value="{{$q->id}}{{$a->text}}" id="{{$a->id}}" @if (old('answer'.$q->id) == $q->id . $a->text) checked @endif><label for="{{$a->id}}"> {{$a->text}}</label>
+                                                        <input type="radio" name="answer{{$q->id}}"  style="margin:0px 10px;" value="{{$q->id}}{{$a->text}}" id="{{$a->id}}" @if (old('answer'.$q->id) == $q->id . $a->text) checked @endif><label for="{{$a->id}}"> 
+                                                            @php
+                                                                $a = substr($a->text , 1);
+                                                                echo $a;
+                                                            @endphp
+                                                        
+                                                        </label>
                                                     </li>
                                                 @endif
                                             @endforeach
@@ -138,7 +150,13 @@ p.logg{
                                             @foreach($rowans as $a)
                                                 @if($a->question_id == $q->id)
                                                 <li class="d-flex justify-content-center align-items-center col-md-3 col-6" style="display: inline;color: #330066;">
-                                                        <input type="checkbox" name="answer{{$a->id}}[]" style="margin:0px 10px;" value="{{$q->id}}" id="{{$a->id}}"  @if (old('answer'.$a->id) == $q->id) checked  @endif><label for="{{$a->id}}"> {{$a->text}}</label>
+                                                        <input type="checkbox" name="answer{{$a->id}}[]" style="margin:0px 10px;" value="{{$q->id}}" id="{{$a->id}}"  @if (old('answer'.$a->id) == $q->id) checked  @endif><label for="{{$a->id}}">
+                                                            
+                                                            @php
+                                                                $a = substr($a->text , 1);
+                                                                echo $a;
+                                                            @endphp
+                                                        </label>
                                                     </li>
                                                 @endif
                                             @endforeach

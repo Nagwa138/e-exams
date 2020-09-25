@@ -198,7 +198,7 @@ date_default_timezone_set('Africa/Cairo');
                                 $interval = strtotime($e->times);
                                 $interval2 = ($interval +( $e->time * 60 * 60 )+($e->min * 60));
                                 $interval3 = strtotime($currenttime);
-                                if($interval2 > $interval3){
+                                if(($interval2 > $interval3 ) && ($interval3 > $interval)){
                                         //new//
 
                                         $opened = DB::table('openexams')

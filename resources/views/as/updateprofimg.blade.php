@@ -83,6 +83,8 @@ and open the template in the editor.
        </center>
 </nav>
 <section>
+    <div class="alert alert-danger" >يرجي ادخال صورتك الحقيقيه لمساعدة الطلاب والمسؤلين في ايجادك</div>
+
     <div class="container">
         <div class="row flex-row justify-content-between align-content-center align-items-center flex-wrap" style="padding-top: 5vh">
             @foreach($row as $x)

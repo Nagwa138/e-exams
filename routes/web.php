@@ -176,6 +176,11 @@ Route::get('Number','training@addnumber');
 Route::post('addnumq','training@addnum');
 Route::get('{r}/deletestr','exam@deletestructure');
 Route::get('Train-Exam','training@trainshow');
+Route::get('Middle-Train','training@middleTrain');
+
+
+Route::get('Middle-Traina','training2@middleTrain');
+
 Route::post('starttrain','training@trainstart');
 Route::post('endtrain','training@trainans');
 Route::get('{r}/Choose-Subject','training@sellevel');
@@ -310,13 +315,6 @@ Route::post('{rowc}/uptexta','exam2@upqu');
 Route::post('{rowc}/update-answera','exam@upans');
 Route::get('Update-Imagea','control2@upimg');
 Route::post('Updated-Imagea','control2@updateimg');
-
-
-
-
-
-
-
 
 Route::get('{level}/ExamStructurea','exam2@examst');
 Route::get('{subject}/Make-Structurea','exam2@mkexam');

@@ -12,7 +12,7 @@
             {{csrf_field()}}
             <label class="form-label" for="final">Final Exam</label><br>
             <input class="form-control" type="number" id="final" name="final" placeholder="Final Exam ..."><br>
-            <label class="form-label" for="finalch">Final Exams <i>(Number of Questions of each Chapter)</i></label><br>
+            <label class="form-label" for="finalch">Train Exams <i>(Number of Questions of each Chapter)</i></label><br>
             <input class="form-control" type="number" id="finalch" name="finalch" placeholder="Final Exam chapters ..."><br>
             <label class="form-label" for="train">Train Exams <i>(Number of Questions of each Chapter)</i></label><br>
             <input class="form-control" type="number" id="train" name="train" placeholder="Train Exams ..."><br><hr>

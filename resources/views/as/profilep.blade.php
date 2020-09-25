@@ -4,7 +4,12 @@
 <div style="width: 100%">
         <div class="container">
             <div class="row d-flex flex-column justify-content-center align-content-center align-items-center" style="padding-top: 8vh">
-
+                @if (count($rowopen) == 0)
+                <center>
+                    <p style="margin: auto;width:auto">لا يوجد اسئله لمراجعتها بعد !!</p>
+                    <img class="non-found" src="img/non/non1.png">
+                </center>
+            @else
                
                    @foreach($rowopen as $o)
                         @foreach($rows as $s)
@@ -59,7 +64,7 @@
                             @endif
                         @endforeach
                    @endforeach
-               
+               @endif
             </div>
         </div>
     </div>

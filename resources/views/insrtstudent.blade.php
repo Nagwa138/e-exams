@@ -44,6 +44,13 @@
     </form>
 
 <div>
+    @if (count($rows) == 0)
+                <center>
+                    <hr>
+                    <p style="margin: auto;width:auto">No Students Yet !!</p>
+                    <img class="non-found" src="img/non/non1.png">
+                </center>
+    @else
     <table class="table">
         <thead>
         <th>ID</th>
@@ -80,6 +87,7 @@
             @endforeach
         </tbody>
     </table>
+    @endif
 </div>
     <script>
         $(document).ready(function(){

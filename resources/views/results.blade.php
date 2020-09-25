@@ -6,6 +6,12 @@
         <div class="container">
             <div class="row d-flex flex-column justify-content-center align-content-center align-items-center" style="padding-top: 12vh">
                 <div class="app-section col-12" style="color: black;text-decoration: none">
+                    @if (count($rowr) == 0)
+                            <center>
+                                <p style="margin: auto;width:auto">No Rquests Yet !!</p>
+                                <img class="non-found" src="img/non/non1.png">
+                            </center>
+                        @else
                     <table class="table table-striped">
                         <thead>
                             <th>Subject</th>
@@ -44,6 +50,7 @@
                         @endforeach
                         </tbody>
                     </table>
+                    @endif
                 </div>
             </div>
         </div>

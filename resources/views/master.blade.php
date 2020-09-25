@@ -10,8 +10,6 @@ and open the template in the editor.
     <meta name="csrf-token" content="{{csrf_token()}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="bootstrap-4.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link rel="icon" href="../images.jpeg" style="border-radius: 20px">
-
     <title>Admin Page</title>
     <script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
     <script src="bootstrap-4.0.0/dist/js/bootstrap.min.js" type="text/javascript"></script>
@@ -30,12 +28,12 @@ and open the template in the editor.
                 <center><button class="button-alert">close</button></center>
             </div>
         @endif
-
-
-
+       
+        
+        
         <div class="container">
             <div class="row flex-row justify-content-between align-content-center" style="padding-bottom: 20px;">
-
+                
             <p class="logg"><i class="logg2">KFS </i>University</p>
                 <ul class="mid">
                     <a href="Requests" class="hovering" style="margin-right: 15px"><li>Requests</li></a>
@@ -45,7 +43,7 @@ and open the template in the editor.
                     <a href="Subjects" class="hovering"><li>Subjects</li></a>
                 </ul>
                 <ul class="mid2 justify-content-center align-content-center flex-column" style="padding-top:10vh;">
-
+                    
                     @foreach($row as $x)
                         @foreach($imr as $i)
                             @if($i->professor_id == $x->id)
@@ -108,7 +106,7 @@ and open the template in the editor.
                 </div>
             </div>
         </div>
-
+        
         <div class="nav-links d-flex flex-column justify-content-around align-content-around align-items-center">
             <div class="d-flex flex-column justify-content-center align-content-center align-items-center icons" >
                 @foreach($row as $x)

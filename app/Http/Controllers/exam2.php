@@ -346,6 +346,15 @@ class exam2 extends Controller
             $number = DB::table('usualexams')
                     ->where('subject_id',$sid)
                     ->get();
+
+                    $quesLimit =  DB::table('questions')
+                    ->where('chapter_id',$request->chapter)
+                    ->get();
+
+            if(count($quesLimit)  >=  $request->quest){
+
+            
+
             if(count($number)>0){
                 foreach ($number as $nm){
                     if($nm->number > $strsub){
@@ -356,18 +365,7 @@ class exam2 extends Controller
                                 $sCh = $strsCh + $request->quest;
                                 if ($nm->number_chapter >= $sCh) {
 
-                                    $compareQD = DB::table('questions')
-                                        ->where('chapter_id',$request->chapter)
-                                        ->where('difficult_id',$request->degree)
-                                        ->get();
-                                    $compareSD = DB::table('examstructures')
-                                        ->where('chapter_id',$request->chapter)
-                                        ->where('difficult_id',$request->degree)
-                                        ->get();
-
-                                    if (count($compareSD) < count($compareQD)){
-
-                                        $t = new examstructure();
+                                    $t = new examstructure();
                                     $t->subject_id = $sid;
                                     $t->chapter_id = $request->chapter;
                                     $t->difficult_id = $request->degree;
@@ -377,10 +375,6 @@ class exam2 extends Controller
                                     session()->get('chapid');
                                     session()->put('chapid', $t->id);
                                     return redirect()->back()->with('nulls', 'تم اضافة الهيكل بنجاح !!');
-                                    }
-                                    else{
-                                        return redirect()->back()->with('nulls','عدد الاسئله من هذه الفئه لم يعد متاح في هذا الفصل برجاء اختيار فئه اخري او فصل اخر');
-                                    }
                                 }
                                 elseif ($nm->number_chapter < $sCh){
                                     return redirect()->back()->with('nulls','عدد الاسئله الذي اخترته اكبر من العدد المسموح به في هذا الفصل برجاء اختيار عدد اقل!!');
@@ -401,6 +395,11 @@ class exam2 extends Controller
             }else{
                     return redirect()->back()->with('nulls', 'يرجى ادخال عدد الاسئله اولا !!');
                 }
+
+                
+            }  else{
+                return redirect()->back()->with('nulls', 'غير متاح هذا العدد من الاسئله في هذا الفصل من الماده !!');
+            }
 
     }
     public function deletestructure(examstructure $r){

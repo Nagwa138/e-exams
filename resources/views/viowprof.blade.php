@@ -8,6 +8,12 @@
     <br>
     <br>
     <hr>
+    @if (count($rowp) == 0)
+        <center>
+            <p style="margin: auto;width:auto">No Rquests Yet !!</p>
+            <img class="non-found" src="img/non/non1.png">
+        </center>
+    @else
     <table class="table table-striped table-hover">
         <thead>
         <tr>
@@ -85,4 +91,5 @@
         @endforeach
         </tbody>
     </table>
+    @endif
 @stop

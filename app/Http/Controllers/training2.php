@@ -96,60 +96,44 @@ class training2 extends Controller
                             ->where('chapter_id', $c->id)
                             ->limit($tr->number)
                             ->get();
-                        foreach ($rowq as $q) {
-                            $rowdata = DB::table('datatrains')
-                                ->where('chapter_id', $c->id)
-                                ->where('question_id', $q->id)
-                                ->get();
-                            if (count($rowdata) < 1) {
-                                if ($q->typeq_id == 1) {
-                                    $train = new datatrains();
-                                    $train->question_id = $q->id;
-                                    $train->chapter_id = $c->id;
-                                    $train->save();
-                                }
-                                if ($q->typeq_id == 3) {
-                                    $train = new datatrains();
-                                    $train->question_id = $q->id;
-                                    $train->chapter_id = $c->id;
-                                    $train->save();
-                                }
-
-                                foreach ($rowdata as $da2) {
-                                    $rowco = DB::table('chapteropens')
-                                        ->where('subject_id', $req->subject)
-                                        ->where('natid', $student)
-                                        ->where('chapter_id', $da2->chapter_id)
-                                        ->get();
-                                    if (count($rowco) < 1) {
-                                        $trs = new chapteropens();
-                                        $trs->subject_id = $req->subject;
-                                        $trs->natid = $student;
-                                        $trs->chapter_id = $da2->chapter_id;
-                                        $trs->save();
-
-                                    }
-                                }
-                                if (count($rowdata) > 0) {
-                                    foreach ($rowdata as $da2) {
+                        
+                            foreach ($rowq as $q){
+                                $rowdata = DB::table('datatrains')
+                                  ->where('question_id',$q->id)
+                                  ->get();
+                                if(count($rowdata) >0){
+                                    foreach ($rowdata as $da2){
                                         $rowco = DB::table('chapteropens')
-                                            ->where('subject_id', $req->subject)
-                                            ->where('natid', $student)
-                                            ->where('chapter_id', $da2->chapter_id)
-                                            ->get();
-                                        if (count($rowco) < 1) {
-                                            $trs = new chapteropens();
-                                            $trs->subject_id = $req->subject;
-                                            $trs->natid = $student;
-                                            $trs->chapter_id = $da2->chapter_id;
-                                            $trs->save();
-
+                                                ->where('subject_id',$req->subject)
+                                                ->where('natid',$student)
+                                                ->where('chapter_id',$da2->chapter_id)
+                                                ->get();
+                                        if(count($rowco)<1){
+                                          $trs = new chapteropens();
+                                          $trs->subject_id = $req->subject;
+                                          $trs->natid = $student;
+                                          $trs->chapter_id = $da2->chapter_id;
+                                          $trs->save();
                                         }
                                     }
                                 }
-
-                            }
-                        }
+                                elseif(count($rowdata) <1){
+                                    if($q->typeq_id == 1){
+                                     $train = new datatrains();
+                                     $train->question_id = $q->id;
+                                     $train->chapter_id = $c->id;
+                                     $train->save();
+                                    }
+                                    if($q->typeq_id == 3){
+                                        $train = new datatrains();
+                                        $train->question_id = $q->id;
+                                        $train->chapter_id = $c->id;
+                                        $train->save();
+                                       }
+                                  }
+                                  return redirect('Middle-Traina');
+  
+                                }
                     }
                 } else {
                     return redirect()->back()->with('nulls', 'الاختبارات التدريبيه غير متاحه بعد !!');
@@ -158,8 +142,25 @@ class training2 extends Controller
             }
         }
         }
-       return redirect('Train-Exama')->with('nulls', 'بدء الامتحان');
+      
     }
+
+    
+    public function middleTrain(){
+        
+        $subject_id = session()->get('subjectid');
+        $rowt = DB::table('trainexams')
+            ->where('subject_id',$subject_id)
+            ->get();
+        if(count($rowt)>0){
+            return redirect('Train-Exama')->with('nulls', 'بدء الامتحان !!');
+        } 
+        else {
+                return redirect("Studenta")->with('nulls', 'الامتحانات التدريبيه غير متاحه حاليا !!');
+        }
+    }
+
+
     public function trainans(Request $request){
         $subject = session('subjectid');
         $student = session('studentid');

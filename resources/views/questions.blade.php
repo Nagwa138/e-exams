@@ -37,7 +37,20 @@
             </a>
         </div>
     </div>
+    
 <table class="table table-hover">
+
+    @if (count($rowq) == 0)
+    <tbody><tr><td>
+                <center>
+                    <hr>
+                   
+                    <p style="margin: auto;width:auto">No Questions Yet !!</p>
+                    <img class="non-found" src="../img/non/non1.png">
+
+                </center>
+            </tbody></tr></td>
+    @else
     <thead>
     <tr>
         <th scope="col">#</th>
@@ -124,10 +137,10 @@
                         </div>
                         <div id="collapsetwo11222{{$x->id}}" class="collapse show" aria-labelledby="headingOne11222{{$x->id}}" data-parent="#accordion">
                             <div class="card-body" >
-                                <p class="sit" style="color: #00cccc;font-size: 18px" data-toggle="modal" data-target="#exampleModalCenteredit{{$x->id}}">
+                                <p class="sit" style="color: #00cccc;font-size: 18px" data-toggle="modal" data-target="#exampleModalCenter">
                                     <i class="fas fa-edit" style="font-size: 20px;margin-right: 5px;cursor:pointer;"></i><hr>
                                 </p>
-                                <div class="modal fade" id="exampleModalCenteredit{{$x->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <form class="modal-content" action="uptext" method="post">
                                             {{csrf_field()}}
@@ -169,10 +182,10 @@
                                 <div id="collapsetwo11{{$x->id}}" class="collapse show" aria-labelledby="headingOne11{{$x->id}}" data-parent="#accordion">
                                     <div class="card-body" >
                                         <p>
-                                            <button class="btn btn-outline-dark" style="margin-right: 10px;"  data-toggle="modal" data-target="#exampleModalCenter1{{$x->id}}">
+                                            <button class="btn btn-outline-dark" style="margin-right: 10px;"  data-toggle="modal" data-target="#exampleModalCenter1">
                                                <i class="fas fa-image" style="color: chartreuse"></i>
                                             </button>
-                                            <div class="modal fade" id="exampleModalCenter1{{$x->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                     <form class="modal-content" action="imageadd" method="post" enctype="multipart/form-data">
                                                         {{csrf_field()}}
@@ -195,10 +208,10 @@
                                             </div>
                                         </p>
                                         <p  style="margin-right: 10px;color: black">
-                                            <button class="btn btn-outline-dark"  data-toggle="modal" data-target="#exampleModalCenter3{{$x->id}}">
+                                            <button class="btn btn-outline-dark"  data-toggle="modal" data-target="#exampleModalCenter3">
                                                <i class="fas fa-music"  style="color: blueviolet"></i>
                                             </button>
-                                            <div class="modal fade" id="exampleModalCenter3{{$x->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                     <form class="modal-content" action="audioadd" method="post" enctype="multipart/form-data">
                                                         {{csrf_field()}}
@@ -221,10 +234,10 @@
                                             </div>
                                         </p>
                                         <p style="color: black">
-                                            <button class="btn btn-outline-dark"  data-toggle="modal" data-target="#exampleModalCenter2{{$x->id}}">
+                                            <button class="btn btn-outline-dark"  data-toggle="modal" data-target="#exampleModalCenter2">
                                                 <i class="fas fa-video"  style="color: blue"></i>
                                             </button>
-                                            <div class="modal fade" id="exampleModalCenter2{{$x->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                     <form class="modal-content" action="videoadd" method="post" enctype="multipart/form-data">
                                                         {{csrf_field()}}
@@ -259,5 +272,7 @@
             @endif
             @endforeach
     </tbody>
+    @endif
 </table>
+
     @stop

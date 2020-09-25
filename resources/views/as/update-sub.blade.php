@@ -93,7 +93,7 @@
                                 <input type="text" class="form-control" name="name" placeholder="اسم الفصل ..">
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="submit" class="btn btn-primary">حفظ</button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">الغاء</button>
                             </div>
                         </form>

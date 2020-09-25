@@ -21,7 +21,7 @@
             <select class="custom-select mr-sm-2" id="depart" name="depart">
                 @foreach ($rowd as $y)
                 <option value="{{$y->id}}">
-                    {{$y->name}}
+                    {{$y->name}} / الصف  {{$y->level_id}}
                 </option>
                 @endforeach
             </select><br>

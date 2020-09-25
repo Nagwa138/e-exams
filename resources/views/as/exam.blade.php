@@ -14,7 +14,7 @@
                             <div class="card-body" >
                             @foreach($rows as $s)
                                 @if($s->department_id == $u->id)
-                                    <a href="../{{$s->id}}/Make-Structure" class="btn-outline-success text-primary col-12 justify-content-center"><center> {{$s->name}}</center></a>
+                                    <a href="../{{$s->id}}/Make-Structurea" class="btn-outline-success text-primary col-12 justify-content-center"><center> {{$s->name}}</center></a>
                                 @endif
                              @endforeach
                             </div>

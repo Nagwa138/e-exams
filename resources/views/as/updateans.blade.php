@@ -13,23 +13,23 @@
                         {{$ans->text}}<br>
                         @if($ans->correct == 1)
 
-                            correct
+                            اجابه صحيحه 
 
 
                             <br>
                       @endif
                         @if($ans->correct == 0)
 
-                            wrong<br>
+                            اجابه خاطئه<br>
                         @endif
                     @endif
                   @endforeach
             </div>
         </div>
-        <button class="btn btn-primary" type="submit">Save</button>
+        <button class="btn btn-primary" type="submit">حفظ</button>
         <a href="{{$q->id}}/Questions">
             <button class="btn btn-secondary" type="button">
-                Cancel
+                الغاء
             </button>
         </a>
             @endforeach

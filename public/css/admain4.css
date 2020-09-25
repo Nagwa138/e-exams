@@ -2,6 +2,13 @@
     font-size: 20px;
 }
 
+.non-found{
+
+    width:70%; 
+    height:50%; 
+    margin: auto;
+
+}
 p.logg{
     color: white;padding-left: 20px;padding-top: 20px;
 }
@@ -346,7 +353,14 @@ img-con{
     
 }
 @media screen and (max-width: 1265px){
-    
+       
+.non-found{
+
+    width:70%; 
+    height:50%; 
+    margin: auto;
+
+}
     .nav-links{
         height: 100vh;
         right: 0%;

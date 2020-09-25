@@ -9,7 +9,7 @@ and open the template in the editor.
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{csrf_token()}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="../images.jpeg" style="border-radius: 20px">
+    <link rel="icon" href="images.jpeg" style="border-radius: 20px">
 
     <link href="bootstrap-4.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <title>Admin Page</title>
@@ -86,11 +86,14 @@ and open the template in the editor.
        </center>
 </nav>
 <section>
+    <div class="alert alert-danger" >Please Enter your Real Picture To help Students And Admins find you</div>
+
     <div class="container">
         <div class="row flex-row justify-content-between align-content-center align-items-center flex-wrap" style="padding-top: 5vh">
             @foreach($row as $x)
                     @foreach($imr as $i)
                         @if($i->professor_id == $x->id)
+
                         <img src="../Professor-img/{{$x->id}}/{{$i->img}}" class="col-md-7 col-12 imgv" style="border-radius:100px;margin-top: 1vh">
                         @endif
                         @if($i->professor_id != $x->id)
@@ -101,7 +104,9 @@ and open the template in the editor.
             <form action="Updated-Image" method="post" enctype="multipart/form-data" style="margin-top: 8vh">
                 {{csrf_field()}}
                 <div class="input-group mb-3">
+                    
                     <div class="input-group-prepend">
+                        
                         <span class="input-group-text" id="basic-addon3">Select Image</span>
                     </div>
                     <input type="file" name="img" class="form-control" id="basic-url" aria-describedby="basic-addon3">

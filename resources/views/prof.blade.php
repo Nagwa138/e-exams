@@ -9,7 +9,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="icon" href="../images.jpeg" style="border-radius: 20px">
+        <link rel="icon" href="images.jpeg" style="border-radius: 20px">
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/app.min.css">
